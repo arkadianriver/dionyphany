@@ -50,13 +50,13 @@ params:
   #
   # Posts index page info
   #
-  #postsTitle: Posts
+  postsTitle: Blog
   #postsDescription: Blog description ipsum dolor sit amet.
 
   #
   # Works index page info
   #
-  #worksTitle: Works
+  worksTitle: Portfolio
   #worksDescription: |
   #  Filter the portfolio by selecting the roles and skills you’re interested in.
   #  The project title links to more details.
