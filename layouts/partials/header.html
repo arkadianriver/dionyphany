@@ -1,0 +1,21 @@
+<header>
+	<h1><a href="/">{{ site.Params.title }}</a></h1>
+	<div class="sunmoon">
+		<span class="sun-btn" onClick="setColorMode()">☀</span>
+		<span class="moon-btn" onClick="setColorMode()">☾</span>
+	</div>
+	<nav>
+		{{- with site.GetPage "section" "posts" }}
+		<a href="{{ .Permalink }}">{{ i18n "posts" }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+		{{- end }}
+		{{- with site.GetPage "section" "works" }}
+		<a href="{{ .Permalink }}">{{ i18n "works" }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+		{{- end }}
+		{{- with site.GetPage "/about" }}
+		<a href="{{ .Permalink }}">{{ i18n "about" }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;
+		{{- end }}
+		{{- with site.GetPage "/contact" }}
+		<a href="{{ .Permalink }}">{{ i18n "contact" }}</a>
+		{{- end }}
+	</nav>
+</header>

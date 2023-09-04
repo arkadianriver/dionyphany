@@ -1,0 +1,16 @@
+<nav class="page-sequence">
+	{{ if .NextInSection }}<a class="sequence-link prev-page"
+		href="{{ .NextInSection.Permalink }}">&lt; {{ i18n "previousPage" }}<br />
+		{{- if gt ( .NextInSection.Title | strings.Count "" ) 20 }}{{ slicestr .NextInSection.Title 0 20 }} ...
+		{{- else }}{{ .NextInSection.Title }}{{ end }}</a>
+	{{- else }}<a class="sequence-link index-page"
+			href="{{ .CurrentSection.Permalink }}">{{ i18n "index" .CurrentSection.Title }}<br />&nbsp;</a>
+	{{- end }}
+	{{ if .PrevInSection }}<a class="sequence-link next-page"
+		href="{{ .PrevInSection.Permalink }}">{{ i18n "nextPage" }} &gt;<br />
+		{{- if gt ( .PrevInSection.Title | strings.Count "" ) 20 }}{{ slicestr .PrevInSection.Title 0 20 }} ...
+		{{- else }}{{ .PrevInSection.Title }}{{ end }}</a>
+	{{- else }}<a class="sequence-link index-page"
+			href="{{ .CurrentSection.Permalink }}">{{ i18n "index" .CurrentSection.Title }}<br />&nbsp;</a>
+	{{- end }}
+</nav>

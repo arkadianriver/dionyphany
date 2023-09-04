@@ -1,0 +1,22 @@
+{{- define "main" -}}
+<main>
+
+	<section class="rounded-block top-block">
+		<h1>{{ .Params.title }}</h1>
+		<h2 class="page-subtitle">{{ .Params.subtitle | markdownify }}</h2>
+		<p class="page-date">{{ .Params.Date.Format "02 Jan 2006" }}</p>
+		<div class="page-content">
+		{{ .Content }}
+		</div>
+		{{ partial "sequence-nav.html" . }}
+		{{ partial "byline.html" . }}
+	</section>
+
+	{{- if site.DisqusShortname }}
+	<section class="rounded-block">
+	{{ template "_internal/disqus.html" . }}
+	</section>
+	{{- end }}
+
+</main>
+{{- end -}}

@@ -1,0 +1,21 @@
+{{- define "main" -}}
+<main>
+
+	<section class="rounded-block top-block">
+		<h1>{{ .Params.title }}</h1>
+		<h2 class="page-subtitle">{{ .Params.subtitle | markdownify }}</h2>
+		<p class="page-date">{{ .Params.Date.Format "02 Jan 2006" }}</p>
+		<div class="page-content">
+			<dl class="roles-and-skills">
+				<dt class="term-roles">{{ i18n "roles" }}</dt>
+				<dd>{{ delimit .Params.roles ", " }}</dd>
+				<dt class="term-skills">{{ i18n "skills" }}</dt>
+				<dd>{{ delimit .Params.skills ", " }}</dd>
+			</dl>
+			{{ .Content }}
+		</div>
+		{{ partial "sequence-nav.html" . }}
+	</section>
+
+</main>
+{{- end -}}

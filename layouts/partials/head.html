@@ -1,0 +1,42 @@
+<head>
+	<meta charset="UTF-8" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, target-densitydpi=device-dpi"/>
+	<title>{{ site.Params.title }}</title>
+	{{- if os.FileExists "static/favicon.ico" }}
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	{{- end }}
+	{{ template "_internal/opengraph.html" . }}
+	{{ template "_internal/twitter_cards.html" . }}
+	{{ template "_internal/google_analytics.html" . }}
+	{{- with site.Params.colorTheme }}
+	{{ $customTheme := resources.Get ( printf "css/colors/%s.css" . ) | resources.Minify }}
+	<link rel="stylesheet" href="{{ $customTheme.Permalink }}">
+	{{- else }}
+	{{ $defaultTheme := resources.Get "css/colors/default.css" | resources.Minify }}
+	<link rel="stylesheet" href="{{ $defaultTheme.Permalink }}">
+	{{- end }}
+	{{- $style := resources.Get "css/style.css" | resources.Minify }}
+	<link rel="stylesheet" href="{{ $style.Permalink }}" />
+	{{- if site.Params.codeCopyButton }}
+	{{- $codeStyle := resources.Get "css/codecopy.css" | resources.Minify }}
+	<link rel="stylesheet" href="{{ $codeStyle.Permalink }}" />
+	{{- end }}
+	{{/**
+		 * Don't defer this first one, since we want the CSS colors to 
+		 * be available before the HTML loads. If deferred, the browser
+		 * will flash each time the user switches pages.
+		 */}}
+	{{- $jsLight := resources.Get "js/sunmoon.js" | resources.Minify }}
+	<script src="{{ $jsLight.Permalink }}"></script>
+	{{- $jsHead := resources.Get "js/script.js" | resources.Minify }}
+	<script src="{{ $jsHead.Permalink }}" defer></script>
+	{{- if site.Params.codeCopyButton }}
+	{{- $jsCopy := resources.Get "js/codecopy.js" | resources.Minify }}
+	<script src="{{ $jsCopy.RelPermalink }}" defer></script>
+	{{ end }}	
+	{{- if or .Params.math .Site.Params.math }}
+	{{- partial "math.html" . }}
+	{{- end }}
+</head>

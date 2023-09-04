@@ -1,0 +1,66 @@
+{{- define "main" }}
+		<main>
+
+			<section class="rounded-block top-block">
+        <h1>{{ site.Params.greeting }}</h1>
+        <p class="description">{{ site.Params.description | markdownify }}</p>
+				{{ partial "social.html" site.Params.Social }}
+      </section>
+
+      {{- $idxPg := newScratch }}
+      {{- $featured := site.Params.useFeatured }}
+      {{- if $featured }}
+  			{{ $idxPg.Set "posts" ( first 4 ( where ( where site.RegularPages "Type" "posts" ) ".Params.featured" true ) ) }}
+      {{- else }}
+	  		{{ $idxPg.Set "posts" ( first 2 ( where site.RegularPages "Type" "posts" ) ) }}
+      {{- end }}
+			{{- with $idxPg.Get "posts" }}
+      <section class="rounded-block posts-recents">
+        <div class="posts-list-head">
+          <h2 class="title-md">
+            {{- if $featured }}{{ i18n "featuredPosts" }}
+            {{- else }}{{ i18n "recentPosts" }}
+            {{- end -}}
+          </h2>
+          <p class="posts-page-link"><a href="/posts">{{ i18n "allPosts" }}</a></p>
+        </div>
+        <div class="posts-list-items">
+					{{- range . }}
+          <a class="posts-list-item" href="{{ .Permalink }}">
+            <p class="post-item-title"><span class="pitem-title">{{ .Params.title }}</span>
+            {{- with .Params.subtitle }}
+            <br /><span class="pitem-subtitle">{{ . }}</span>
+						{{- end }}
+            </p>
+            <div class="pitem-date">{{ .Params.Date.Format "02 Jan 2006" }}</div>
+          </a>
+					{{- end }}
+        </div>
+      </section>
+			{{- end }}
+      
+			{{- $works := where ( where site.RegularPages "Type" "works" ) ".Params.featured" true }}
+			{{- with $works }}
+			<section class="rounded-block works-featured">
+        <div class="works-list-head">
+          <h2 class="title-md">{{ i18n "featuredWorks" }}</h2>
+          <p class="works-page-link"><a href="/works">{{ i18n "allWorks" }}</a></p>
+        </div>
+        <div class="works-list-items">
+					{{- range $works }}
+          <a class="works-list-item" href="{{ .Permalink }}">
+            <p class="work-item-title"><span class="witem-title">{{ .Params.title }}</span>
+            {{- with .Params.subtitle }}
+            <br /><span class="witem-subtitle">{{ . }}</span>
+						{{- end }}
+            </p>
+            <div class="work-roles">{{ i18n "roles" }}: {{ delimit .Params.roles ", " }}</div>
+            <div class="work-skills">{{ i18n "skills" }}: {{ delimit .Params.skills ", " }}</div>
+          </a>
+					{{- end }}
+        </div>
+      </section>
+			{{- end }}
+
+		</main>
+{{- end }}

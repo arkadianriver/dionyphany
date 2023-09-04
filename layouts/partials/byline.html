@@ -1,0 +1,31 @@
+{{ if ne .Params.nobyline true }}
+	{{ if and site.Params.byline ( not .Page.Params.nobyline ) }}
+		{{ $authtoken := or ( replace .Page.Params.author " " "" | urlize )
+			 							    ( "default" ) }}
+		{{ with index site.Data site.Language.Lang "authors" $authtoken }}
+			{{- $byline := . }}
+	<div class="byline">
+			{{- with .avatar }}
+			{{- with resources.Get . }}
+			{{- with .Fill "100x100 Center" }}
+		<div class="byline-avatar">
+			<img src="{{ .RelPermalink }}" alt="Author's avatar image"/>
+		</div>
+			{{- end }}
+			{{- end }}
+			{{- end }}
+			{{- with .author }}
+			<div class="byline-author"><b>
+				{{- i18n "by" . | safeHTML }}</b>
+				{{- with $byline.url -}}
+				<span class="byline-url"><a href="{{ . }}">{{ . }}</a></span>
+				{{- end -}}
+			</div>
+			{{- end }}
+			{{- with .bio }}
+			<div class="byline-bio">{{ . | markdownify }}</div>
+			{{- end }}
+	</div>
+		{{- end }}
+	{{- end }}
+{{- end }}

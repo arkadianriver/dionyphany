@@ -1,0 +1,7 @@
+{{- with .Get 0 -}}
+<div class="note {{ . }}"><span class="{{ . }}_title title">{{ . | humanize }}</span>
+{{- else }}
+<div class="note"><span class="note_title">Note:</span>
+{{- end }}
+  {{ .Inner }}
+</div>

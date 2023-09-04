@@ -1,0 +1,9 @@
+{{ if .IsNamedParams -}}
+<div class="img-page {{ .Get "bg" }}-bg
+  {{- with .Get "dim" }}{{ if eq . "yes" }} dim{{ end }}{{ end }}"
+  {{ with .Get "width" }}style="width:{{ . }};margin-inline:auto"{{ end }}>
+  <a href="{{ .Get "src" }}" target="_blank"><img width="100%"
+     src="{{ .Get "src" }}" alt="{{ .Get "alt" }}"/></a></div>
+{{- else }}
+{{- errorf "missing parameters: 'bg', 'src', 'alt'" }}
+{{- end }}

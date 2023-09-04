@@ -1,0 +1,52 @@
+{{- define "main" -}}
+<main>
+
+	<section class="rounded-block top-block">
+		{{- with .Params.title }}
+		<h1>{{ . }}</h1>
+		{{- else }}
+		<h1>{{ i18n "credits" }}</h1>
+		{{- end }}
+		{{- with .Params.subtitle }}
+		<h2 class="page-subtitle">{{ . }}</h2>
+		{{- else }}
+		<h2 class="page-subtitle">{{ i18n "creditsSub" }}</h2>
+		{{- end }}
+		<div class="page-content">
+			<table class="credits-table">
+				<!--
+				<thead>
+					<tr class="credits-head">
+						<th class="title-md">{{ i18n "description" }}</th>
+						<th class="title-md">{{ i18n "roles" }}</th>
+						<th class="title-md">{{ i18n "demonstratedSkills" }}</th>
+					</tr>
+				</thead>
+				-->
+				<tbody>
+					{{- range $c := sort ( index site.Data site.Language.Lang "credits" ) "weight" }}
+					<tr class="credits-row odd-shaded">
+						<td class="credits-by"><a href="{{ $c.url }}" target="_blank" rel="noopener noreferrer">{{ $c.by }}</a></td>
+						<td class="credits-for">
+							<div class="for-reason">{{ $c.for | markdownify }}</div>
+							<div class="for-details">{{ $c.details | markdownify }}</div>
+						</td>
+						<td class="credits-lic">
+							{{- if $c.license -}}
+							{{- $licurl := index site.Data site.Language.Lang "licenses" $c.license "url" -}}
+							{{- if ne $licurl "none" -}}
+								<a href="{{ $licurl }}" target="_blank" rel="noopener noreferrer">
+								{{- end -}}
+								{{- index site.Data site.Language.Lang "licenses" $c.license "name" -}}
+								</a>
+							{{- end -}}
+						</td>
+					</tr>
+					{{- end }}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+</main>
+{{- end -}}

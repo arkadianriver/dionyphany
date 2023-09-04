@@ -1,0 +1,45 @@
+{{- define "main" -}}
+<main>
+
+	<section class="rounded-block top-block intro">
+		<h1>{{ with site.Params.postsTitle }}{{ . }}{{ else }}{{ i18n "posts" }}{{ end }}</h1>
+		{{- with site.Params.postsDescription }}
+		<p class="description">{{ . | markdownify }}</p>
+		{{- else }}
+		<p class="description">{{ i18n "postsPageDescription" | markdownify }}</p>
+		{{- end }}
+		{{- with site.Params.postsLinks }}
+		{{- partial "social.html" . }}
+		{{- end }}
+	</section>
+
+	{{- with .Content }}
+	<section class="rounded-block">
+	{{ . }}
+	</section>
+	{{- end }}
+
+	<section class="rounded-block">
+		<div class="posts-all">
+			{{- range .RegularPages.GroupByDate "2006" }}
+			<h3 class="title-md">{{ .Key }}</h3>
+			<ul class="postpage-yr-list">
+	  	  {{ range .Pages }}
+  		  <li class="postpage-item">
+					<div class="pi-dd-mon">[ {{ .Date.Format "02 Jan" }} ]</div>
+					<div class="pi-txtblk">
+    				<a class="pi-title" href="{{ .Permalink }}">{{ .Title }}</a>
+						<span class="pi-delim"/>
+						{{- with .Params.Subtitle }}
+						<span class="pi-subttl">- {{ . }}</span>
+						{{- end }}
+					</div>
+    		</li>
+    		{{- end }}
+			</ul>
+			{{- end }}
+		</div>
+	</section>
+
+	</main>
+{{- end -}}

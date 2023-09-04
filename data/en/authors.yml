@@ -1,0 +1,26 @@
+# authors
+#
+# add yourself and any other authors contributing to your site
+#
+default:
+  author: Your Name
+  avatar: /images/avatar.png
+  url: https://example.com
+  bio: |
+    Short bio nostrud occaecat consectetur culpa veniam ipsum
+    proident eiusmod cupidatat velit consequat tempor minim nisi
+    sit.
+  disqus_shortname: exampleuser
+
+# For many of the standard Hugo pages in exampleSite
+hugoauthors:
+  author: Hugo Authors
+  bio: |
+    The wonderful contributors at
+    https://github.com/gohugoio/hugo/graphs/contributors
+
+arkadianriver:
+  author: Gary Faircloth
+  url: https://arkadianriver.com
+  bio: |
+    _Interests:_ tech, science, history, PC Gam ... SQUIRREL!

@@ -1,0 +1,26 @@
+.page-content pre:not(.chroma),
+.page-content .highlight > .chroma {
+  position: relative;
+  padding: var(--bx-pad-lg) var(--gap-unit) var(--gap-unit);
+}
+
+.page-content pre button {
+  position: absolute;
+  top: var(--bx-pad-md);
+  right: var(--bx-pad-md);
+	width: fit-content;
+	border: solid var(--bdr-width) var(--clr-code-link);
+	border-radius: var(--bx-corner-tiny);
+	background-color: var(--clr-code-link-bg);
+	color: var(--clr-code-link);
+	font-size: var(--fs-200);
+	padding: 0.25em 0.5em;
+}
+
+.page-content pre button:hover,
+.page-content pre button:focus {
+	cursor: pointer;
+	color: var(--clr-code-accent);
+	background-color: var(--clr-code-accent-bg);
+}
+

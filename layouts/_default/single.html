@@ -1,0 +1,19 @@
+{{- define "main" -}}
+<main>
+
+	<section class="rounded-block top-block">
+		{{ with .Params.Title }}<h1>{{ . }}</h1>{{ end }}
+		{{ with .Params.Subtitle }}<h2 class="page-subtitle">{{ . | markdownify }}</h2>{{ end }}
+		{{- with .Params.Social }}
+		{{- partial "social.html" . }}
+		{{- end }}
+		{{ with .Params.Date }}<p class="page-date">{{ .Format "02 Jan 2006" }}</p>{{ end }}
+		{{- with .Content }}
+		<div class="page-content">
+		{{ . }}
+		</div>
+		{{- end }}
+	</section>
+
+</main>
+{{- end -}}

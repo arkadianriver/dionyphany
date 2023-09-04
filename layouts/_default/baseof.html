@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html {{ with site.Language.LanguageCode }}lang="{{.}}"{{end}}>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <section class="bgimage">
+            {{- with resources.Get site.Params.bgimage }}
+            <img src="{{ .RelPermalink }}" alt="background image"/>
+            {{- end }}
+        </section>
+        {{- block "main" . }}{{- end }}
+        {{- partial "footer.html" . -}}
+    </body>
+</html>

@@ -1,0 +1,41 @@
+publicdomain:
+  name : Public Domain
+  url  : none
+mit:
+  name : MIT License
+  url  : https://opensource.org/license/mit/
+ccb2:
+  name : Creative Commons Attribution 2.0 Generic
+  url  : https://creativecommons.org/licenses/by/2.0/
+ccb3:
+  name : Creative Commons Attribution 3.0 Unported
+  url  : https://creativecommons.org/licenses/by/3.0/
+ccbsa2:
+  name : Creative Commons Attribution-ShareAlike 2.0
+  url  : https://creativecommons.org/licenses/by-sa/2.0/
+ccbnc2:
+  name : Creative Commons Attribution-NonCommercial 2.0 Generic
+  url  : https://creativecommons.org/licenses/by-nc/2.0/
+ccbncnd2:
+  name : Creative Commons Attribution-NonCommercial-NoDerivs 2.0 Generic
+  url  : https://creativecommons.org/licenses/by-nc-nd/2.0/
+ccbncsa2:
+  name : Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Generic
+  url  : https://creativecommons.org/licenses/by-nc-sa/2.0/
+apa2:
+  name : Apache License, 2.0
+  url  : https://www.apache.org/licenses/LICENSE-2.0
+gplv3:
+  name : Gnu Public License, 3.0
+  url  : https://www.gnu.org/licenses/gpl-3.0.en.html
+openfont:
+  name : SIL Open Font License
+  url  : https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+canvafree:
+  name : Canva's Content License for Free Content (Item 6.3)
+  url  : https://www.canva.com/policies/content-license-agreement/
+unsplash:
+  name : Unsplash license
+  url  : https://unsplash.com/license
+
+  

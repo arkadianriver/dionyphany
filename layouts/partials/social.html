@@ -1,0 +1,11 @@
+{{- with . -}}
+<ul class="social">
+	{{ $lastIdx := sub ( . | len ) 1 }}
+	{{- range $idx, $val := . -}}
+	<li>
+		<a href="{{ $val.url }}" target="_blank" rel="noopener noreferrer">{{ $val.name }}</a>
+		{{- if lt $idx $lastIdx }}&nbsp;&nbsp;/&nbsp;&nbsp;{{ end }}
+	</li>
+	{{- end -}}
+</ul>
+{{- end -}}

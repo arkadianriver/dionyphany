@@ -1,0 +1,93 @@
+
+home:
+  other: Home
+
+posts:
+  other: Posts
+
+works:
+  other: Works
+
+about:
+  other: About
+
+description:
+  other: Description
+
+contact:
+  other: Contact
+
+copyright:
+  other: Copyright
+  
+credits:
+  other: Credits
+
+recentPosts:
+  other: Recent posts
+
+allPosts:
+  other: All posts
+
+featuredPosts:
+  other: Featured posts
+
+featuredWorks:
+  other: Featured works
+
+allWorks:
+  other: All works
+
+demonstrates:
+  other: Demonstrates
+
+worklink:
+  other: Project
+
+roles:
+  other: Roles
+
+skills:
+  other: Skills
+
+previousPage:
+  other: Later
+
+nextPage:
+  other: Earlier
+
+credits:
+  other: Credits
+
+thanks:
+  other: Many thanks to the following peeps!
+
+http404:
+  other: Page not found
+
+http404content:
+  other: |
+    [Return home](/)
+
+index:
+  other: "{{ . }} index"
+
+altAvatarImg:
+  other: Image of the article author
+
+by:
+  other: |
+    Article by:  
+    {{ . }}
+
+creditsSub:
+  other: In no particular order
+
+worksPageDescription:
+  other: |
+    Filter the portfolio by selecting the roles and skills you're interested in.
+    The project title links to more details.
+
+postsPageDescription:
+  other: |
+    The archive of topics

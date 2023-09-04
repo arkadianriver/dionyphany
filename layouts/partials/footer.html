@@ -1,0 +1,16 @@
+<footer>
+	{{ partial "social.html" site.Params.Social }}
+	<p class="copyright">
+		<small>Ⓒ</small> {{ i18n "copyright" }} {{ site.Params.owner }}
+		{{ $currYear := now.Format "2006" }}
+		{{- $firstPost := index ( first 1 ( where ( site.RegularPages.ByParam "date" ) "!=" nil ) ) 0 }}
+		{{- $firstYear := $firstPost.Params.Date.Format "2006" }}
+		{{- with $firstYear }}
+			{{- if lt $firstYear $currYear }}{{ $firstYear }}, {{ end }}
+		{{- end }}
+		{{- $currYear }}.
+		{{- if site.GetPage "/credits"}}
+		<a href="/credits">{{ i18n "credits" }}</a>
+		{{- end }}
+	</p>
+</footer>

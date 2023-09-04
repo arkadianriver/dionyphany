@@ -1,0 +1,50 @@
+design:
+  by: Maxence Wolff
+  for: This theme's design inspiration
+  details: |
+    This theme is _more than inspired_ from his Astro portfolio and blog theme.
+    I was captured by its simplicity and clean lines.
+  weight: 0
+  url: https://astro.build/themes/details/maewolff-portfolio-template/
+  license: mit
+thistheme:
+  by: arkadianriver
+  for: This theme
+  details: |
+    Inspired by Maxence's design, but too different
+    than a PR or fork could provide.
+  weight: 10
+  url: https://arkadianriver.com
+  license: mit
+background:
+  by: Konstaninos Dafallas
+  weight: 20
+  for: The background
+  url: https://www.flickr.com/photos/72906133@N00/4011647045/
+  license: publicdomain
+  details: |
+    It's shared on flickr as public domain, but many thanks regardless. 😊
+avatar:
+  by: Boudewijn Huysmans
+  for: Byline avatar
+  weight: 22
+  url: https://unsplash.com/photos/IJw9pjF2f-s
+  license: unsplash
+opensans:
+  by: Steve Matteson
+  for: OpenSans font
+  weight: 30
+  url: https://fonts.google.com/specimen/Open+Sans/about?query=open+sans
+  license: openfont
+inconsolata:
+  by: Raph Levien
+  for: Inconsolata font
+  weight: 31
+  url: https://fonts.google.com/specimen/Inconsolata/about?query=inconsolata
+  license: openfont
+buildframework:
+  by: Hugo
+  for: Build framework
+  weight: 40
+  url: https://gohugo.io/
+  license: apa2

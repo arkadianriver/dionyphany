@@ -1,0 +1,1041 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/**
+ * ---------------------------------------
+ *   COMMON to all pages
+ * ---------------------------------------
+ */
+
+:root {
+
+	--ff-sans: 'Open Sans', sans-serif;
+	--ff-prose: 'Open Sans', sans-serif;
+	--ff-mono: 'Inconsolata', monospace;
+
+	--blk-width: 52rem;
+	--blk-maxwidth: 100%;
+	--gap-unit: 1rem;
+	--bdr-width: 0.0625rem;
+	--sz-lilpic: calc(8 * 0.8rem);
+	--sz-medpic: calc(14 * 0.8rem);
+	--sz-maxpic: 40%;
+	--pg-mgn-lr: 1.6rem;
+	--pg-pad: 1rem;
+	--bx-corner-tiny: 0.275rem;
+	--bx-corner-inner: 0.75rem;
+	--bx-corner-outer: 1.5rem;
+	--bx-mgn-sm: 0.125rem;
+	--bx-mgn-sm-1: 0.3rem;
+	--bx-mgn-sm-2: 0.5rem;
+	--bx-mgn-sm-3: 0.875rem;
+	--bx-mgn-sm-4: 1.25rem;
+	--bx-mgn-sm-5: 1.5rem;
+	--bx-mgn-md: 2rem;
+	--bx-mgn-mdx2: 3.5rem;
+	--bx-mgn-lg: 4rem;
+	--bx-mgn-lgx2: 6rem;
+	--bx-pad-sm: 0.125rem;
+	--bx-pad-sm-2: 0.3125rem;
+	--bx-pad-md: 0.5rem;
+	--bx-pad-md-2: 0.75rem;
+	--bx-pad-md-3: 1rem;
+	--bx-pad-md-4: 1.5rem;
+	--bx-pad-lg: 2rem;
+
+	--fs-200: 0.75rem;
+	--fs-300: 0.85rem;
+	--fs-400: 1rem;
+	--fs-500: 1.25rem;
+	--fs-600: 1.5rem;
+	--fs-700: 2.5rem;
+
+	--fw-regular: 400;
+	--fw-medium: 500;
+	--fw-semibold: 600;
+	--fw-bold: 700;
+	--fw-extrabold: 800;
+
+}
+
+@media (max-width: 42rem) {
+	:root {
+		--blk-width: 100%;
+		--pg-pad: 0.5rem;
+		--pg-mgn-lr: 0.8rem;
+		--bx-mgn-md: 1rem;
+		--gap-unit: 0.5rem;
+		--bx-corner-inner: 1rem;
+	}
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: var(--ff-sans);
+	font-size: var(--fs-400);
+	color: var(--clr-text);
+	/* following declarations only ensure footer is on bottom when content < page */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	/* want everything to bubble to top (except footer, see footer rule below */
+	justify-content: flex-start;
+	font-weight: var(--fw-regular);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding-bottom: 0;
+	font-size: 1rem;
+	line-height: 1.38;
+	font-weight: var(--fw-regular);
+	color: var(--clr-text-accent);
+}
+
+a,
+a:visited {
+	color: var(--clr-secondary);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--clr-accent);
+	cursor: pointer;
+}
+
+.bgimage {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100lvh; /* 'l' because of mobile chrome's own retracting head-room */
+	background-color: var(--clr-background);
+	z-index: -1;
+}
+
+.bgimage img {
+	width: 100vw;
+	height: 100lvh;
+	object-fit: cover;
+	object-position: center center;
+}
+
+header,
+footer {
+	margin: 0;
+	background-color: var(--clr-primary-thick);
+	box-shadow: var(--bx-shd-hdr);
+}
+
+footer {
+	padding: var(--bx-pad-sm) var(--pg-pad);
+	margin-top: auto; /* ensures footer is on bottom when content < page */
+}
+
+/* see script.js for details */
+/* overlayed and retractable header with .tuckedaway */
+header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	padding: var(--gap-unit);
+	align-items: center;
+	justify-content: space-between;
+	transition: all 0.2s ease-in-out 0s;
+}
+
+.tuckedaway {
+	transform: translate3d(0px, -100%, 0px);
+}
+
+header > * {
+	padding: 0;
+	margin: 0;
+}
+
+header h1 {
+	font-weight: var(--fw-extrabold);
+	letter-spacing: 0.2em;
+}
+
+/* see sunmoon.js for details */
+header .sunmoon {
+	margin-inline: auto 0;
+	padding-inline: var(--bx-pad-md-3);
+}
+
+.sun-btn,
+.moon-btn {
+	font-size: var(--fs-600);
+	line-height: 0.8;
+}
+
+.sun-btn:hover,
+.moon-btn:hover {
+	cursor: pointer;	
+}
+
+.sun-btn {
+	display: none;
+}
+
+.moon-btn {
+	display: block;
+	color: var(--clr-secondary);
+}
+
+.darkmode .sun-btn {
+	display: block;
+	color: var(--clr-secondary);
+}
+
+.darkmode .moon-btn {
+	display: none;
+}
+ 
+header nav {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+header nav a::after {
+	color: var(--clr-secondary);
+}
+
+.social {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0;
+}
+
+.social li::after {
+	color: var(--clr-secondary);
+}
+
+main {
+	padding: var(--bx-mgn-mdx2) 0 var(--bx-pad-sm);
+	margin: 0 auto;
+	width: var(--blk-width);
+	max-width: var(--blk-maxwidth);
+}
+
+.copyright {
+	font-size: var(--fs-300);
+	color: var(--clr-text-subdued);
+}
+
+/**
+ * ---------------------------------------
+ *   COMMON Layout classes
+ * ---------------------------------------
+ */
+
+.rounded-block {
+	background-color: var(--clr-primary);
+	border-radius: var(--bx-corner-outer);
+	box-shadow: var(--bx-shd);
+	padding: var(--gap-unit) var(--pg-pad);
+	margin: var(--bx-mgn-md) var(--pg-mgn-lr);
+}
+
+.top-block {
+	margin-top: var(--bx-mgn-md);
+	margin-bottom: var(--bx-mgn-md);
+	padding: var(--bx-pad-md) calc(var(--pg-pad) * 2);
+}
+
+.top-block .description {
+	width: 100%;
+	max-width: 50ch;
+	margin: var(--bx-mgn-md) 0 var(--bx-mgn-md) 0;
+	line-height: 2;
+}
+
+.top-block h1 {
+	margin: var(--bx-mgn-lgx2) 0 var(--bx-mgn-sm-2)	0;
+	font-size: var(--fs-700);
+	line-height: 1.2;
+}
+
+.title-md {
+	font-weight: var(--fw-regular);
+	line-height: 1
+	font-size: var(--fs-500);
+}
+
+.two-gap-units {
+	padding: var(--gap-unit) 0;
+}
+
+
+/**
+ * ---------------------------------------
+ *   LANDING PAGE sections
+ * ---------------------------------------
+ */
+
+p.posts-page-link,
+p.works-page-link {
+	margin-top: 0;
+}
+
+p.posts-page-link a,
+p.works-page-link a {
+	padding-bottom: 2px;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-underline-position: under;
+}
+
+.posts-list-head,
+.works-list-head {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0;
+	padding: 0 var(--pg-pad);
+}
+
+.posts-list-head *,
+.works-list-head * {
+	margin-top: 0;
+}
+
+.posts-list-items,
+.works-list-items {
+	list-style: none;
+	padding: 0;
+	gap: var(--gap-unit);
+}
+
+.posts-list-items {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 42rem) {
+	.posts-list-items {
+		grid-template-columns: 1fr;
+	}
+}
+
+.works-list-items {
+	display: flex;
+	flex-direction: column;
+}
+
+.posts-list-item,
+.works-list-item {
+	color: var(--clr-text);
+	margin: 0;
+	border-radius: var(--bx-corner-inner);
+	padding: var(--gap-unit);
+	border: var(--bdr-width) solid var(--clr-secondary);
+}
+
+.posts-list-item:visited,
+.works-list-item:visited {
+	color: var(--clr-text);
+}
+
+.posts-list-item:hover,
+.works-list-item:hover {
+	border: var(--bdr-width) solid var(--clr-accent);
+	cursor: pointer;
+	background-color: var(--clr-accent-bg);
+}
+
+.posts-list-item:hover,
+.posts-list-item:hover .pitem-title,
+.posts-list-item:focus,
+.posts-list-item:focus .pitem-title,
+.works-list-item:hover,
+.works-list-item:hover .witem-title,
+.works-list-item:focus,
+.works-list-item:focus .witem-title {
+	color: var(--clr-accent);
+}
+
+.posts-list-item {
+	flex-grow: 1 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: start;
+}
+
+.post-item-title,
+.work-item-title {
+	margin-top: 0;
+	line-height: 1.7;
+}
+
+.pitem-title,
+.witem-title {
+	color: var(--clr-secondary);
+}
+
+.pitem-date,
+.work-roles,
+.work-skills {
+	font-size: var(--fs-300);
+	color: var(--clr-text-subdued);
+}
+
+.work-item-title,
+.work-roles {
+	margin-bottom: var(--bx-mgn-sm-2);
+}
+
+
+/**
+ * ---------------------------------------
+ *   POSTS index page
+ * ---------------------------------------
+ */
+
+.posts-all {
+	margin: var(--bx-mgn-sm-2) var(--bx-mgn-sm-3);
+	padding: 0;
+}
+
+.postpage-yr-list {
+	list-style: none;
+	padding-left: var(--pg-pad);
+}
+
+.postpage-item {
+	margin: var(--bx-mgn-sm);
+	padding: var(--bx-pad-md) 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	align-items: flex-start;
+}
+
+@media (max-width: 38rem) {
+	.postpage-item {
+		flex-direction: column;
+	}
+}
+
+.pi-dd-mon {
+	white-space: nowrap;
+	font-family: var(--ff-mono);
+	font-weight: var(--fw-bold);
+	margin: 0 var(--bx-mgn-sm-3) 0 0;
+	vertical-align: top;
+	line-height: 1.35;
+}
+
+.pi-txtblk {
+	margin-left: var(--bx-pad-md);
+}
+
+.pi-subttl {
+	padding: var(--bx-pad-sm);
+}
+
+
+/**
+ * ---------------------------------------
+ *   WORKS index page
+ * ---------------------------------------
+ */
+
+.works-table {
+	margin: var(--bx-mgn-sm-2) auto;
+	padding: 0;
+	border-collapse: collapse;
+	width: 100%;
+	/* width: calc(100% - var(--pg-mgn-lr) ); */
+	padding-inline: calc(var(--pg-pad) * 2);
+}
+
+.works-head,
+.works-row {
+	margin: 0;
+	padding: 0;
+}
+
+.works-row {
+	border-top: var(--bdr-width) solid var(--clr-text-subdued);
+}
+
+.works-head > th,
+.works-row > td {
+	margin: 0 auto;
+	text-align: left;
+	padding: var(--gap-unit);
+}
+
+.col1, .col2 {
+	width: 30%;
+}
+
+.col3 {
+	width: 40%;
+}
+
+.works-row > td {
+	vertical-align: top;
+}
+
+@media (max-width: 48rem) {
+	.works-head {
+		display: none;
+	}
+
+	.works-row {
+		display: flex;
+		flex-direction: column;
+		padding: var(--bx-pad-md) var(--gap-unit);
+	}
+
+	.works-row:first-child {
+		border-top: none;
+	}
+
+	.works-row > td {
+		width: 100%;
+		padding: var(--bx-pad-md) 0;
+	}
+}
+
+.rw-title,
+.rw-subtitle {
+	display: block;
+	margin-top: 0;
+}
+
+.rw-subtitle {
+	font-size: var(--fs-300);
+	padding-top: var(--bx-pad-md);
+}
+
+.skill-tags {
+	margin: 0;
+	padding: 0;
+}
+
+.roles,
+.skills {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.role,
+.skill {
+	color: var(--clr-secondary);
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+	margin: 0.25rem 0.25rem;
+	width: fit-content;
+	border-radius: var(--bx-corner-tiny);
+	font-size: var(--fs-200);
+}
+
+.role {
+	border: var(--bdr-width) solid var(--clr-secondary);
+}
+
+.skill {
+	border: var(--bdr-width) solid var(--clr-secondary);
+}
+
+.role:hover,
+.skill:hover {
+	color: var(--clr-accent);
+	border: var(--bdr-width) solid var(--clr-accent);
+	cursor: pointer;
+	background-color: var(--clr-accent-bg);	
+}
+
+.role.selected,
+.skill.selected {
+	color: var(--clr-text-accent);
+	background-color: var(--clr-accent-bg);	
+}
+
+
+/**
+ * ---------------------------------------
+ *   CONTENT pages, common to both
+ * ---------------------------------------
+ */
+
+h2.page-subtitle {
+	font-size: var(--fs-600);
+	font-style: italic;
+	width: 100%;
+	max-width: 50ch;
+	margin: 0 0 var(--bx-mgn-lg) 0;
+}
+
+.page-date {
+	margin: var(--bx-mgn-mdx2) 0 var(--bx-mgn-md) 0;
+	padding: 0;
+}
+
+.page-content h2 {
+		font-size: var(--fs-600);
+		margin: var(--bx-mgn-md) 0 var(--bx-mgn-sm-4) 0;
+}
+
+.page-content h3 {
+	font-size: var(--fs-500);
+	margin: var(--bx-mgn-md) 0 var(--bx-mgn-sm) 0;
+}
+
+.page-content h4 {
+	font-size: var(--fs-500);
+	font-style: italic;
+	padding: 0;
+	margin: var(--bx-pad-md-4) 0 0 0;
+}
+
+.page-content p,
+.page-content dt,
+.page-content dd,
+.page-content li,
+.page-content blockquote {
+	font-family: var(--ff-prose);
+	line-height: 1.8;
+}
+
+.page-content p,
+.page-content ul,
+.page-content ol,
+.page-content dl,
+.page-content blockquote {
+	margin: var(--bx-mgn-sm-5) 0;
+}
+
+.page-content dt {
+	margin: var(--bx-mgn-sm-2) 0 var(--bx-mgn-sm-1) 0;
+	font-weight: var(--fw-semibold);
+}
+
+.page-content dd {
+	margin: var(--bx-mgn-sm) 0 var(--bx-mgn-sm-3) var(--gap-unit);
+}
+
+.page-content li {
+	margin: var(--bx-pad-md-2) 0;
+}
+
+/**
+ * Inline styling is not restricted to the `page-content` class
+ * so they can be used to style other site blocks.
+ * I'm leaving it in this page-content context in the CSS
+ * file only for easy comparison to how they're used in
+ * the page block context (such as `pre code` and `mark`).
+ */
+strong,
+b {
+	font-weight: var(--fw-bold);
+}
+code,
+kbd {
+	font-family: var(--ff-mono);
+	font-size: var(--fs-400);
+}
+:not(pre) > code {
+	background-color: var(--clr-code-bg);
+	color: var(--clr-code-fg);
+}
+:not(pre) > code,
+kbd > kbd,
+mark {
+	border-radius: 0.25em;
+	padding-inline: 0.25em;
+	padding-bottom: 0.125em;
+}
+mark {
+	color: var(--clr-primary);
+	background-color: var(--clr-accent);
+}
+kbd > kbd {
+	border: 1px solid var(--clr-text-subdued);
+}
+abbr {
+	cursor: help;
+}
+
+/* block styling */
+
+.page-content pre code {
+	line-height: 1.36;
+	display:block;
+	overflow-x: auto;
+	padding: var(--bx-pad-sm-2) 0;
+	/* Firefox */
+  scrollbar-width: var(--fs-300);
+  scrollbar-color: var(--clr-accent) var(--clr-accent-bg);
+}
+
+/* chrome, opera, safari */
+.lntable::-webkit-scrollbar,
+.page-content pre code::-webkit-scrollbar {
+	width: 0.5em;
+	height: 0.5em;
+}
+.lntable::-webkit-scrollbar-track,
+.page-content pre code::-webkit-scrollbar-track {
+  background: var(--clr-primary);
+  border-radius: 1.5em;
+}
+.lntable::-webkit-scrollbar-thumb,
+.page-content pre code::-webkit-scrollbar-thumb {
+  background-color: var(--clr-text-subdued);
+  border-radius: 1.5em;
+}
+
+.lntable {
+	display: block;
+	max-width: 100%;
+	overflow-x: auto;
+	scrollbar-width: var(--fs-300);
+  scrollbar-color: var(--clr-accent) var(--clr-accent-bg);
+}
+
+.lntable pre.chroma {
+	margin: 0;
+}
+
+.page-content pre:not(.chroma),
+.page-content .highlight > .chroma {
+  padding: var(--gap-unit);
+	border-radius: var(--bx-corner-inner);
+}
+
+.page-content pre:not(.chroma) {
+	color: var(--clr-code-fg);
+	background-color: var(--clr-code-bg);
+}
+
+.page-content .note .title {
+	font-weight: var(--fw-bold);
+}
+
+.page-content .note .title::after {
+	content: ':'; /* TODO: revisit with i18n */
+}
+
+.page-content .note {
+	border: var(--bdr-width) solid var(--clr-text-subdued);
+	padding: var(--gap-unit);
+	margin: var(--bx-mgn-md) 0;
+	border-radius: var(--bx-corner-inner);
+	line-height: 1.8;
+}
+
+.page-content blockquote {
+	margin-inline: var(--bx-pad-md);
+	padding: var(--bx-pad-sm) var(--gap-unit);
+	font-style: italic;
+}
+
+.page-content .footnotes {
+	font-size: var(--fs-300);
+}
+
+.page-content .footnotes ol {
+	padding-left: var(--pg-pad);
+}
+
+.page-content table:not(.lntable) { /* all except inside numbered codeblocks */
+	border-collapse: collapse;
+	margin: var(--bx-mgn-sm-4) auto;
+	width: 100%;
+}
+
+.page-content table .for-details {
+	font-size: var(--fs-300);
+	color: var(--clr-text-subdued);
+}
+
+.page-content tr {
+	border-top: var(--bdr-width) solid var(--clr-text-subdued);
+}
+
+.page-content tbody tr:nth-child(odd) {
+	background-color: var(--clr-text-very-subdued);
+}
+
+@media (max-width: 48rem) {
+
+	.page-content table:not(.lntable) tr {
+		display: flex;
+		flex-direction: column;
+		padding: var(--bx-pad-md) var(--gap-unit);
+	}
+
+	.page-content table:not(.lntable) td {
+		width: 100%;
+		padding: var(--bx-pad-sm) var(--gap-unit);
+	}
+
+}
+
+.page-content th {
+	padding: var(--bx-pad-md) var(--gap-unit);
+	vertical-align: bottom;
+}
+
+.page-content td {
+	vertical-align: top;
+	text-align: left;
+	margin: 0 auto;
+	padding: var(--bx-pad-md) var(--gap-unit);
+}
+
+.page-content .light-bg {
+	background-color: var(--img-bg-light);
+}
+
+.page-content .dark-bg {
+	background-color: var(--img-bg-dark);
+}
+
+.page-content .auto-bg {
+	background-color: var(--img-bg-auto);
+}
+
+.page-content img,
+.page-content svg,
+.page-content video {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.page-content .img-page {
+	padding: var(--bx-pad-md-4);
+	border: none;
+	border-radius: var(--bx-corner-inner);
+}
+
+.page-content .img-page img {
+	border-radius: var(--bx-corner-tiny);
+}
+
+.page-content .img-float-left {
+	float: left;
+	margin: 0 var(--gap-unit) var(--gap-unit) 0;
+	width: var(--sz-medpic);
+	max-width: var(--sz-maxpic);
+}
+
+.page-content .img-float-right {
+	float: right;
+	margin: 0 var(--gap-unit) 0 var(--gap-unit);
+	width: var(--sz-medpic);
+	max-width: var(--sz-maxpic);
+}
+
+.page-content .img-float-left img,
+.page-content .img-float-right img {
+	border:solid 0.125rem #000000;
+	border-radius: var(--bx-corner-inner);
+}
+
+.page-content .twitter-tweet {
+	color: var(--clr-text-subdued);
+	background-color: var(--img-bg-auto);
+	font-size: var(--fs-300);
+}
+
+.no-border {
+	border: none;
+	border-radius: 0;
+}
+
+.page-sequence {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: var(--bx-mgn-md);
+	margin: var(--bx-mgn-md);
+}
+
+.next-page,
+.prev-page,
+.index-page {
+	display: inline-block;
+	padding: var(--gap-unit);
+	width: 15em;
+	border: var(--bdr-width) solid var(--clr-secondary);
+	border-radius: var(--bx-corner-inner);
+	margin: 0;
+}
+
+.sequence-link:hover {
+	background-color: var(--clr-accent-bg);
+	color: var(--clr-accent);
+	border: var(--bdr-width) solid var(--clr-accent);
+}
+
+.next-page {
+	text-align: right;
+}
+
+.prev-page {
+	text-align: left;
+}
+
+.index-page {
+	text-align: center;
+}
+
+/**
+ * ---------------------------------------
+ *   POST pages, specifically
+ * ---------------------------------------
+ */
+
+.byline {
+	border-top: var(--bdr-width) solid var(--clr-text-subdued);
+	padding-top: var(--bx-pad-md-4);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: var(--gap-unit);
+	margin-bottom: var(--bx-mgn-sm-4);
+}
+
+@media (max-width: 42rem) {
+	.byline {
+		margin-bottom: var(--bx-mgn-sm-2);
+	}
+}
+
+.byline-avatar {
+	height: var(--sz-lilpic);
+	width: var(--sz-lilpic);
+}
+
+.byline-avatar img {
+	border-radius: var(--bx-corner-inner);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
+}
+
+.byline-author {
+	width: fit-content;
+	white-space: pre;
+}
+
+.byline-url {
+	font-style: italic;
+}
+
+.byline-bio {
+	flex: 1 1 0;
+	width: auto;
+	min-width: 30ch;
+}
+
+
+/**
+ * ---------------------------------------
+ *   WORK pages, specifically
+ * ---------------------------------------
+ */
+
+.roles-and-skills {
+	border: var(--bdr-width) solid var(--clr-text-subdued);
+	padding: var(--gap-unit);
+	margin: var(--bx-mgn-md) 0;
+	border-radius: var(--bx-corner-inner);
+}
+
+.term-roles {
+	font-size: var(--fs-500);
+}
+
+.term-skills {
+	font-size: var(--fs-500);
+	padding-top: var(--gap-unit);
+}
+
+.roles-and-skills dd {
+	margin-left: var(--gap-unit);
+}
+
+
+/**
+ * ---------------------------------------
+ *   CONTACT page
+ * ---------------------------------------
+ */
+
+.page-form {
+	margin-bottom: var(--bx-mgn-sm-4);
+}
+
+fieldset {
+	display: flex;
+	flex-direction: column;
+	border: var(--bdr-width) solid var(--clr-text-subdued);
+	border-radius: var(--bx-corner-inner);
+	background-color: transparent;
+	padding: calc(var(--pg-pad) * 2);
+	gap: calc( var(--gap-unit) * 2);
+}
+
+/*
+	don't want to see labels because placeholder text has the info.
+	but screen readers don't always see placeholder text,
+	so.. keeping the label available to screen readers but that's it.
+	CSS Clipping technique from
+	https://webaim.org/techniques/css/invisiblecontent/
+*/
+label.sr-only {
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+}
+
+input, textarea {
+	width: 100%;
+	padding: var(--bx-pad-md);
+	border: var(--bdr-width) solid var(--clr-text-subdued);
+	border-radius: var(--bx-corner-tiny);
+	color: var(--clr-text);
+	background-color: transparent;
+	font-size: var(--fs-400);
+}
+
+.button {
+	border: var(--bdr-width) solid var(--clr-secondary);
+	font-weight: var(--fw-regular);
+	border-radius: var(--bx-corner-tiny);
+	max-width: 8em;
+	color: var(--clr-secondary);
+	font-size: var(--fs-400);
+	padding: 0.75em 1em;
+}
+
+.button:hover,
+.button:focus {
+	background-color: var(--clr-accent-bg);
+	color: var(--clr-accent);
+}
+
+

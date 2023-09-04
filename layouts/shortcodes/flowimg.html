@@ -1,0 +1,10 @@
+{{ if .IsNamedParams -}}
+<div class="img-float-{{ .Get "pos" }}{{ with .Get "class" }} {{.}}{{end}}
+{{- with .Get "dim" }}{{ if eq . "yes" }} dim{{ end }}{{ end }}">
+  <a href="{{ .Get "src" }}" target="_blank"><img width="100%"
+     src="{{ .Get "src" }}" alt="{{ .Get "alt" }}"/></a></div>
+{{ .Inner | markdownify }}
+<div style="clear:both"></div>
+{{- else }}
+{{- errorf "missing parameters: 'pos', 'src', 'alt', optional 'class'" }}
+{{- end }}

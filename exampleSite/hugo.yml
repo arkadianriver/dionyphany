@@ -1,0 +1,155 @@
+
+theme: dionyphany
+
+themesdir: ../..
+
+###
+### Dionyphany configurations
+###
+
+params:
+
+  #
+  # Your site name
+  #
+  title: dionyphany
+
+  #
+  # Large greeting
+  #
+  greeting: Hiya!
+
+  #
+  # Your site description in markdown (paragraph under Greeting)
+  #
+  description: |
+    Welcome to the _Dionyphany_ theme.
+    Refer to the content in the `exampleSite` folder to learn how to use it.
+    The folder contains the standard Hugo topics,
+    plus a few more to guide you,
+    including the topic _Dionyphany user guide_.
+  
+  #
+  # Site owner (for copyright statement)
+  #
+  owner: Your Name
+
+  #
+  # The background image (in `assets`)
+  #
+  bgimage: images/vouraikos-kalavrita.jpg
+  
+  #
+  # Posts index page info
+  #
+  #postsTitle: Posts
+  #postsDescription: Blog description ipsum dolor sit amet.
+
+  #
+  # Works index page info
+  #
+  #worksTitle: Works
+  #worksDescription: |
+  #  Filter the portfolio by selecting the roles and skills you’re interested in.
+  #  The project title links to more details.
+
+  #
+  # If you want to use another CSS file in `assets/css/colors`
+  #
+  #colorTheme: default
+
+  #
+  # Shown on the front page top-block and every footer
+  #
+  social:
+    - name: GitHub
+      url: https://github.com/{user}
+    - name: LinkedIn
+      url: https://linkedin.com/in/{user}
+    - name: X
+      url: https://x.com/{user}
+    - name: Other link
+      url: https://example.com
+
+  # to include bylines. Uses one of:
+  # - default author in `data/authors.yml`
+  # - `author` specified in page variable (also defined in `data/authors.yml`)
+  # - No byline if `nobyline: true` set in Page header
+  byline: true
+
+  # Optional, or use i18n default
+  #worksTitle: Portfolio
+  #worksDescription: Things I enjoyed creating
+  
+  worksLinks:
+    - name: LinkedIn Profile
+      url: https://linkedin.com/in/{name}
+    # you can put your resume in the static folder
+    - name: Resume
+      url: /resume.pdf
+
+  #
+  # For featured posts rather than recent posts on the home page
+  #
+  useFeatured: false
+
+  #
+  # Enabling the code copy button
+  #
+  codeCopyButton: true
+
+#
+# Google analytics if you have an ID.
+#
+#googleAnalytics: A-TOKEN
+
+#
+# Disqus comments for blog posts
+#
+#disqusShortname: _disqususername_
+
+#
+# If you want pretty cards on Twitter when linking to a post, uncomment
+# this with your handle. (The above social array doesn't activate this.)
+#
+#social:
+#  twitter: _yourtwitterhandle_
+
+#
+# You can disable languages that aren't ready yet.
+#
+disableLanguages: ['de']
+
+languages:
+  en:
+    languageName: English
+    contentDir: content/en
+    languageCode: en
+    languageDirection: ltr
+    weight: 1
+  de:
+    languageName: Deutsch
+    contentDir: content/de
+    languageCode: de
+    languageDirection: ltr
+    weight: 2
+
+markup:
+  highlight:
+    lineNumbersInTable: true
+    noClasses: false
+    tabWidth: 2
+  goldmark:
+    parser:
+      attribute:
+        block: true
+      autoHeadingID: false
+    renderer:
+      unsafe: true
+
+minify:
+  minifyOutput: true
+
+disableKinds:
+  - taxonomy
+  - term
