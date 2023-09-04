@@ -20,6 +20,7 @@ concurrency:
 defaults:
   run:
     shell: bash
+    working-directory: exampleSite
 
 jobs:
   build:
@@ -43,6 +44,7 @@ jobs:
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
+          HUGO_THEMESDIR: ../..
         run: |
           hugo \
             --gc \
