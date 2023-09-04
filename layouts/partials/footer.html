@@ -9,7 +9,7 @@
 			{{- if lt $firstYear $currYear }}{{ $firstYear }}, {{ end }}
 		{{- end }}
 		{{- $currYear }}.
-		{{- if site.GetPage "/credits"}}
+		{{- with site.GetPage "/credits"}}
 		<a href="{{ .Permalink }}">{{ i18n "credits" }}</a>
 		{{- end }}
 	</p>
