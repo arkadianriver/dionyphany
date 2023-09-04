@@ -111,7 +111,6 @@ a:hover {
 	left: 0;
 	width: 100vw;
 	height: 100lvh; /* 'l' because of mobile chrome's own retracting head-room */
-	background-color: var(--clr-background);
 	z-index: -1;
 }
 

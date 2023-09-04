@@ -43,6 +43,11 @@ params:
   bgimage: images/vouraikos-kalavrita.jpg
   
   #
+  # If you want to apply the background color with the image
+  #
+  #bgcolor: true
+
+  #
   # Posts index page info
   #
   #postsTitle: Posts
