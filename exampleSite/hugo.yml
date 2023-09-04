@@ -1,7 +1,10 @@
 
 theme: dionyphany
 
-themesdir: ../..
+#
+# For use only when building this exampleSite subdirectory
+#
+#themesdir: ../..
 
 ###
 ### Dionyphany configurations
