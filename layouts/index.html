@@ -22,7 +22,9 @@
             {{- else }}{{ i18n "recentPosts" }}
             {{- end -}}
           </h2>
-          <p class="posts-page-link"><a href="/posts">{{ i18n "allPosts" }}</a></p>
+          {{- with site.GetPage "section" "posts" }}
+          <p class="posts-page-link"><a href="{{ .RelPermalink }}">{{ i18n "allPosts" }}</a></p>
+          {{- end }}
         </div>
         <div class="posts-list-items">
 					{{- range . }}
@@ -44,7 +46,9 @@
 			<section class="rounded-block works-featured">
         <div class="works-list-head">
           <h2 class="title-md">{{ i18n "featuredWorks" }}</h2>
-          <p class="works-page-link"><a href="/works">{{ i18n "allWorks" }}</a></p>
+          {{- with site.GetPage "section" "works" }}
+          <p class="works-page-link"><a href="{{ .RelPermalink }}">{{ i18n "allWorks" }}</a></p>
+          {{- end }}
         </div>
         <div class="works-list-items">
 					{{- range $works }}

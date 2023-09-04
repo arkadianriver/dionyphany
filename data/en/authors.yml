@@ -3,7 +3,7 @@
 # add yourself and any other authors contributing to your site
 #
 default:
-  author: Your Name
+  author: Site Author
   avatar: /images/avatar.png
   url: https://example.com
   bio: |

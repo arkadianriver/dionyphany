@@ -1,9 +1,21 @@
 {{ if .IsNamedParams -}}
+{{- $src := .Get "src" }}
+{{- $srcUrl := $src }}
+{{- if eq ( substr $src 0 4 ) "http" }}
+{{- $srcUrl := resources.GetRemote $src }}
+{{- else }}
+  {{- with resources.Get $src }}
+  {{- $srcUrl = .Permalink }}
+  {{- else }}
+  {{- $srcUrl = $src | relURL }}
+  {{- end }}
+{{- end }}
 <div class="img-page {{ .Get "bg" }}-bg
   {{- with .Get "dim" }}{{ if eq . "yes" }} dim{{ end }}{{ end }}"
   {{ with .Get "width" }}style="width:{{ . }};margin-inline:auto"{{ end }}>
-  <a href="{{ .Get "src" }}" target="_blank"><img width="100%"
-     src="{{ .Get "src" }}" alt="{{ .Get "alt" }}"/></a></div>
+  <a href="{{ $srcUrl }}" target="_blank"><img width="100%"
+     src="{{ $srcUrl }}" alt="{{ .Get "alt" }}"/></a></div>
 {{- else }}
-{{- errorf "missing parameters: 'bg', 'src', 'alt'" }}
+  {{- errorf "missing parameters: 'bg', 'src', 'alt'" }}
 {{- end }}
+
