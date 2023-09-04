@@ -10,7 +10,7 @@
 		{{- end }}
 		{{- $currYear }}.
 		{{- if site.GetPage "/credits"}}
-		<a href="/credits">{{ i18n "credits" }}</a>
+		<a href="{{ .Permalink }}">{{ i18n "credits" }}</a>
 		{{- end }}
 	</p>
 </footer>
