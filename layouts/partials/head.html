@@ -23,10 +23,6 @@
 	{{- $codeStyle := resources.Get "css/codecopy.css" | resources.Minify }}
 	<link rel="stylesheet" href="{{ $codeStyle.Permalink }}" />
 	{{- end }}
-	{{- if site.Params.bgcolor }}
-	{{- $bgclr := resources.Get "css/bgcolor.css" | resources.Minify }}
-	<link rel="stylesheet" href="{{ $bgclr.Permalink }}" />
-	{{- end }}
 	{{/**
 		 * Don't defer this first one, since we want the CSS colors to 
 		 * be available before the HTML loads. If deferred, the browser

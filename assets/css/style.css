@@ -112,13 +112,9 @@ a:hover {
 	width: 100vw;
 	height: 100lvh; /* 'l' because of mobile chrome's own retracting head-room */
 	z-index: -1;
-}
-
-.bgimage img {
-	width: 100vw;
-	height: 100lvh;
-	object-fit: cover;
-	object-position: center center;
+	background-size: cover;
+	background-position: center center;
+	background-color: var(--clr-background);
 }
 
 header,

@@ -21,7 +21,7 @@
 	--clr-text-subdued: hsla(0, 0%, 50%, 1);
 	--clr-text: hsla(0, 0%, 60%, 1);
 	--clr-text-accent: hsla(0, 0%, 70%, 1);
-	--clr-background: hsla(71, 4%, 24%, 0.4);
+	--clr-background: hsla(71, 4%, 24%, 1);
 
 	--clr-code-fg: #abb2bf; /* Used as the default fg and bg for fenced code blocks.. */
 	--clr-code-bg: #282c34; /* ..that don't use highlight shortcodes. */
@@ -54,7 +54,7 @@
 	--clr-text-subdued: hsla(66, 7%, 30%, 1);
 	--clr-text: hsla(66, 7%, 23%, 1);
 	--clr-text-accent: hsla(66, 7%, 13%, 1);
-	--clr-background: hsla(270, 1%, 74%, 0.4);
+	--clr-background: hsla(270, 1%, 74%, 1);
 	--clr-code-fg: #e2e4e5;
 	--clr-code-bg: #282a36;
 	--clr-code-link: hsla(286, 60%, 77%, 1);
