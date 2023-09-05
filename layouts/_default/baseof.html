@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html {{ with site.Language.LanguageCode }}lang="{{.}}"{{end}}>
 	{{- partial "head.html" . -}}
-	<body
-	{{- with resources.Get site.Params.bgimage }}
-	style="background-image: url('{{ .RelPermalink }}')"
-	{{- end }}>
+	<body>
 		{{- partial "header.html" . -}}
 		<section class="bgimage"
 		{{- with resources.Get site.Params.bgimage }}
