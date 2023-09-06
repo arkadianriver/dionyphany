@@ -37,7 +37,11 @@
 	{{- if site.Params.codeCopyButton }}
 	{{- $jsCopy := resources.Get "js/codecopy.js" | resources.Minify }}
 	<script src="{{ $jsCopy.RelPermalink }}" defer></script>
-	{{ end }}	
+	{{- end }}
+	{{- if site.Params.usehtmx }}
+	{{- $jsHtmx := resources.Get "js/htmx.min.js" }}
+	<script src="{{ $jsHtmx.RelPermalink }}" defer></script>
+	{{- end }}
 	{{- if or .Params.math .Site.Params.math }}
 	{{- partial "math.html" . }}
 	{{- end }}

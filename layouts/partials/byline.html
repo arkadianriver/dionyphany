@@ -18,7 +18,7 @@
 			<div class="byline-author"><b>
 				{{- i18n "by" . | safeHTML }}</b>
 				{{- with $byline.url -}}
-				<span class="byline-url"><a href="{{ . }}">{{ . }}</a></span>
+				<span class="byline-url"><a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></span>
 				{{- end -}}
 			</div>
 			{{- end }}

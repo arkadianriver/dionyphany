@@ -1,5 +1,5 @@
 {{- define "main" }}
-		<main>
+		<main id="main">
 
 			<section class="rounded-block top-block">
         <h1>{{ site.Params.greeting }}</h1>
@@ -28,7 +28,10 @@
         </div>
         <div class="posts-list-items">
 					{{- range . }}
-          <a class="posts-list-item" href="{{ .Permalink }}">
+          <a class="posts-list-item"
+            {{- if site.Params.usehtmx }} hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+		        {{- else }} href="{{ .Permalink }}"
+		        {{- end }}>
             <p class="post-item-title"><span class="pitem-title">{{ .Params.title }}</span>
             {{- with .Params.subtitle }}
             <br /><span class="pitem-subtitle">{{ . }}</span>
@@ -52,7 +55,10 @@
         </div>
         <div class="works-list-items">
 					{{- range $works }}
-          <a class="works-list-item" href="{{ .Permalink }}">
+          <a class="works-list-item"
+            {{- if site.Params.usehtmx }} hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+		        {{- else }} href="{{ .Permalink }}"
+		        {{- end }}>
             <p class="work-item-title"><span class="witem-title">{{ .Params.title }}</span>
             {{- with .Params.subtitle }}
             <br /><span class="witem-subtitle">{{ . }}</span>

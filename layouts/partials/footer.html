@@ -10,7 +10,10 @@
 		{{- end }}
 		{{- $currYear }}.
 		{{- with site.GetPage "/credits"}}
-		<a href="{{ .Permalink }}">{{ i18n "credits" }}</a>
+		<a
+			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+			{{- else }} href="{{ .Permalink }}"
+			{{- end }}>{{ i18n "credits" }}</a>
 		{{- end }}
 	</p>
 </footer>
