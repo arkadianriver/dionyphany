@@ -1,5 +1,5 @@
 {{- define "main" -}}
-<main id="main">
+<main>
 
 	<section class="rounded-block top-block">
 		<h1>{{ with site.Params.worksTitle }}{{ . }}{{ else }}{{ i18n "works" }}{{ end }}</h1>
@@ -31,10 +31,7 @@
 			<tbody>
 			{{- range .RegularPages }}
 				<tr id="{{ .File.UniqueID }}" class="works-row odd-shaded">
-					<td class="col1"><span class="rw-title"><a
-						{{- if site.Params.usehtmx }} hx-get="{{ .Page.Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
-						{{- else }} href="{{ .Page.Permalink }}"
-						{{- end }}>{{ .Params.title }}</a></span><span class="rw-subtitle">{{ .Params.subtitle }}</span></td>
+					<td class="col1"><span class="rw-title"><a href="{{ .Page.Permalink }}">{{ .Params.title }}</a></span><span class="rw-subtitle">{{ .Params.subtitle }}</span></td>
 					<td class="col2 role-tags"><ul class="roles">{{ range .Params.roles }}<li class="role" data-selector="{{ . | urlize }}" onclick="tagFilter('{{ . | urlize }}')">{{.}}</li>{{end}}</ul></td>
 					<td class="col3 skill-tags"><ul class="skills">{{ range .Params.skills }}<li class="skill" data-selector="{{ . | urlize }}" onclick="tagFilter('{{ . | urlize }}')">{{.}}</li>{{end}}</ul></td>
 				</tr>

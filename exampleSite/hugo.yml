@@ -41,12 +41,7 @@ params:
   # The background image (in `assets`)
   #
   bgimage: images/vouraikos-kalavrita.jpg
-
-  #
-  # Use htmx to keep all but #main loaded (particularly .bgimage) and avoid flash in Firefox
-  #
-  usehtmx: true
-
+  
   #
   # Posts index page info
   #

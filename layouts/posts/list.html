@@ -1,5 +1,5 @@
 {{- define "main" -}}
-<main id="main">
+<main>
 
 	<section class="rounded-block top-block intro">
 		<h1>{{ with site.Params.postsTitle }}{{ . }}{{ else }}{{ i18n "posts" }}{{ end }}</h1>
@@ -28,10 +28,7 @@
   		  <li class="postpage-item">
 					<div class="pi-dd-mon">[ {{ .Date.Format "02 Jan" }} ]</div>
 					<div class="pi-txtblk">
-    				<a class="pi-title"
-							{{- if site.Params.usehtmx }} hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
-							{{- else }} href="{{ .Permalink }}"
-							{{- end }}>{{ .Title }}</a>
+    				<a class="pi-title" href="{{ .Permalink }}">{{ .Title }}</a>
 						<span class="pi-delim"/>
 						{{- with .Params.Subtitle }}
 						<span class="pi-subttl">- {{ . }}</span>

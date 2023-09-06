@@ -1,15 +1,4 @@
-{{ $destination := .Destination | safeURL -}}
-{{- if site.Params.usehtmx -}}
-<a 
-  {{- if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer" href="{{ $destination }}"
-  {{- else if strings.HasPrefix .Destination "mailto" }} target="_blank" href="{{ $destination }}"
-  {{- else if not (strings.HasSuffix .Destination "") }} target="_blank" href="{{ $destination }}"
-  {{- else if gt (len (split .Destination "#")) 1     }} target="_blank" href="{{ $destination }}"
-  {{- else }} hx-get="{{ $destination }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
-  {{- end }}>{{ .Text | safeHTML }}</a>
-{{- else -}}
-<a href="{{ $destination }}"
+<a href="{{ .Destination | safeURL }}"
     {{- if strings.HasPrefix .Destination "mailto" }} target="_blank" {{ end }}
     {{- if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer"
 		{{- end }}>{{ .Text | safeHTML }}</a>
-{{- end }}
