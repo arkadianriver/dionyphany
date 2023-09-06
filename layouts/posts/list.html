@@ -29,7 +29,7 @@
 					<div class="pi-dd-mon">[ {{ .Date.Format "02 Jan" }} ]</div>
 					<div class="pi-txtblk">
     				<a class="pi-title"
-							{{- if site.Params.usehtmx }} hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+							{{- if site.Params.usehtmx }} hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
 							{{- else }} href="{{ .Permalink }}"
 							{{- end }}>{{ .Title }}</a>
 						<span class="pi-delim"/>

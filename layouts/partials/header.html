@@ -1,6 +1,6 @@
 <header>
 	<h1><a
-				{{- if site.Params.usehtmx }} hx-get="{{ site.BaseURL }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+				{{- if site.Params.usehtmx }} hx-get="{{ site.BaseURL }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
 				{{- else }} href="{{ site.BaseURL }}"
 				{{- end }}>{{ site.Params.title }}</a></h1>
 	<div class="sunmoon">
@@ -10,25 +10,25 @@
 	<nav>
 		{{- with site.GetPage "section" "posts" }}
 		<a
-			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
 			{{- else }} href="{{ .Permalink }}"
 			{{- end }}>{{ i18n "posts" }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;
 		{{- end }}
 		{{- with site.GetPage "section" "works" }}
 		<a
-			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
 			{{- else }} href="{{ .Permalink }}"
 			{{- end }}>{{ i18n "works" }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;
 		{{- end }}
 		{{- with site.GetPage "/about" }}
 		<a
-			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
 			{{- else }} href="{{ .Permalink }}"
 			{{- end }}>{{ i18n "about" }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;
 		{{- end }}
 		{{- with site.GetPage "/contact" }}
 		<a
-			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML" hx-push-url="true"
+			{{- if site.Params.usehtmx }}	hx-get="{{ .Permalink }}" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top" hx-push-url="true"
 			{{- else }} href="{{ .Permalink }}"
 			{{- end }}>{{ i18n "contact" }}</a>&nbsp;&nbsp;/&nbsp;&nbsp;
 		{{- end }}
