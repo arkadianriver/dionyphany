@@ -63,10 +63,11 @@ params:
 
   #
   # Shown on the front page top-block and every footer
+  # Use whatever social URLs you want
   #
   social:
     - name: GitHub
-      url: https://github.com/{user}
+      url: https://github.com/arkadianriver/dionyphany/
     - name: LinkedIn
       url: https://linkedin.com/in/{user}
     - name: X
