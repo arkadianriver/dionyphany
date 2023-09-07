@@ -14,8 +14,7 @@ min_version = "0.116.1"
   name = "Gary Faircloth"
   homepage = "https://arkadianriver.com"
 
-# If porting an existing theme
 [original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "maewolff-portfolio-template"
+  homepage = "https://astro.build/themes/details/maewolff-portfolio-template/"
+  repo = "https://github.com/MaeWolff/astro-portfolio-template"
