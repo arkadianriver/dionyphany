@@ -40,7 +40,4 @@
 	{{- $jsCopy := resources.Get "js/codecopy.js" | resources.Minify }}
 	<script src="{{ $jsCopy.RelPermalink }}" defer></script>
 	{{ end }}	
-	{{- if or .Params.math .Site.Params.math }}
-	{{- partial "math.html" . }}
-	{{- end }}
 </head>

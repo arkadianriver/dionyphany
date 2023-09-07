@@ -941,6 +941,10 @@ abbr {
 	min-width: 30ch;
 }
 
+.byline-bio a {
+	overflow-wrap: break-word;
+}
+
 
 /**
  * ---------------------------------------
@@ -982,10 +986,9 @@ abbr {
 fieldset {
 	display: flex;
 	flex-direction: column;
-	border: var(--bdr-width) solid var(--clr-text-subdued);
-	border-radius: var(--bx-corner-inner);
+	border: none;
 	background-color: transparent;
-	padding: calc(var(--pg-pad) * 2);
+	padding: 0;
 	gap: calc( var(--gap-unit) * 2);
 }
 
@@ -1031,6 +1034,16 @@ input, textarea {
 .button:focus {
 	background-color: var(--clr-accent-bg);
 	color: var(--clr-accent);
+}
+
+/* (for reCAPTCHA box size (e.g. for Netlify forms))
+ * https://geekgoddess.com/how-to-resize-the-google-nocaptcha-recaptcha/
+ */
+@media (max-width: 500px) {
+	.g-recaptcha {
+		transform:scale(0.8);
+		transform-origin:0 0;
+	}
 }
 
 /* ----------------------------------------
