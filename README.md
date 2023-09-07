@@ -60,8 +60,9 @@ I thought it useful to keep track of why a few things are the way they are
 should I need to make changes down the road.
 Some are captured in comments, others here.
 
-- The background image (`.bgimage img`) is assumed to be wider than it is tall.
-  If it's not, swap the CSS declarations to width and min-height instead.
+- When clicking links, the background image (`.bgimage`) would reload and flash in Firefox.
+  Now using htmx (`hx-boost`) in all links to replace only `#main` and keep the rest on
+  the client (including the background) rather than reload the whole page.
 
 - Chroma adds a focusable tabindex to `pre` elements, but I added a tabindex to the `pre > code`
   elements as well because it looks better for it to be scrollable on overflow than the `pre` block

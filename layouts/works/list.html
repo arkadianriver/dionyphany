@@ -1,5 +1,5 @@
 {{- define "main" -}}
-<main>
+<main id="main">
 
 	<section class="rounded-block top-block">
 		<h1>{{ with site.Params.worksTitle }}{{ . }}{{ else }}{{ i18n "works" }}{{ end }}</h1>
@@ -32,60 +32,12 @@
 			{{- range .RegularPages }}
 				<tr id="{{ .File.UniqueID }}" class="works-row odd-shaded">
 					<td class="col1"><span class="rw-title"><a href="{{ .Page.Permalink }}">{{ .Params.title }}</a></span><span class="rw-subtitle">{{ .Params.subtitle }}</span></td>
-					<td class="col2 role-tags"><ul class="roles">{{ range .Params.roles }}<li class="role" data-selector="{{ . | urlize }}" onclick="tagFilter('{{ . | urlize }}')">{{.}}</li>{{end}}</ul></td>
-					<td class="col3 skill-tags"><ul class="skills">{{ range .Params.skills }}<li class="skill" data-selector="{{ . | urlize }}" onclick="tagFilter('{{ . | urlize }}')">{{.}}</li>{{end}}</ul></td>
+					<td class="col2 role-tags"><ul class="roles">{{ range .Params.roles }}<li class="role" data-selector="{{ . | urlize }}">{{.}}</li>{{end}}</ul></td>
+					<td class="col3 skill-tags"><ul class="skills">{{ range .Params.skills }}<li class="skill" data-selector="{{ . | urlize }}">{{.}}</li>{{end}}</ul></td>
 				</tr>
 			{{- end }}
 			</tbody>
 		</table>
 	</section>
 </main>
-
-<style>
-	.hiderow {
-		display: none;
-	}
-</style>
-
-<script defer>
-
-	// start fresh whenever page is refreshed
-	localStorage.setItem('dionyphanyShowRowsWith', "[]");
-
-	// build easy-to-work-with worksData hash, with keys of row ID, and values of tags in the row
-	// rather than always walking the DOM
-	const worksData = {};
-	Array.from(document.querySelectorAll('.works-row')).forEach( (node) => {
-		const tags = node.querySelectorAll('[data-selector]');
-		worksData[node.id] = Array.from(tags, (tag) => tag.dataset.selector );
-	});
-
-	// entry point, onClick of a role or skill
-	function tagFilter(tag) {
-		let selected = JSON.parse(localStorage.getItem('dionyphanyShowRowsWith'));
-		// toggle tag throughout
-		if (selected.includes(tag)) {
-			selected = selected.filter( (val) => val !== tag ); // remove
-			document.querySelectorAll(`[data-selector="${tag}"]`).forEach((item) => item.classList.remove('selected'));
-		} else {
-			selected.push(tag);
-			document.querySelectorAll(`[data-selector="${tag}"]`).forEach((item) => item.classList.add('selected'));
-		}
-		if (selected.length == 0) {
-			// show all if empty, bada-bing
-			document.querySelectorAll('.works-row').forEach((node) => node.classList.remove('hiderow'));
-		} else {
-			// Or bada-boom, go through each row in hash to check if it includes all (every) selected tags
-			// and show or hide accordingly
-			Object.entries(worksData).forEach(([id, tags]) => {
-				selected.every((e) => tags.includes(e))
-				  ? document.getElementById(id).classList.remove('hiderow')
-					: document.getElementById(id).classList.add('hiderow');
-			});
-		}
-		// re-save selected state
-		localStorage.setItem('dionyphanyShowRowsWith', JSON.stringify(selected));
-	}
-
-</script>
 {{- end -}}

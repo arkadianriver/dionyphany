@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html {{ with site.Language.LanguageCode }}lang="{{.}}"{{end}}>
 	{{- partial "head.html" . -}}
-	<body>
+	<body hx-boost="true" hx-select="#main" hx-target="#main" hx-swap="outerHTML show:top">
 		{{- partial "header.html" . -}}
 		<section class="bgimage"
 		{{- with resources.Get site.Params.bgimage }}

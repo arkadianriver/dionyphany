@@ -1033,4 +1033,13 @@ input, textarea {
 	color: var(--clr-accent);
 }
 
+/* ----------------------------------------
+ * last to override other display settings
+ * ----------------------------------------
+ */
+
+.hiderow {
+	display: none;
+}
+
 

@@ -1,5 +1,5 @@
 <!--
-	Created with ♥ using Hugo
+	Created with ♥ using Hugo and htmx
 -->
 <head>
 	<meta charset="UTF-8" />
@@ -30,8 +30,10 @@
 		 * be available before the HTML loads. If deferred, the browser
 		 * will flash each time the user switches pages.
 		 */}}
-	{{- $jsLight := resources.Get "js/sunmoon.js" | resources.Minify }}
+  {{- $jsLight := resources.Get "js/sunmoon.js" | resources.Minify }}
 	<script src="{{ $jsLight.Permalink }}"></script>
+  {{- $jsHtmx := resources.Get "js/htmx.min.js" | resources.Minify }}
+  <script src="{{ $jsHtmx.Permalink }}"></script>
 	{{- $jsHead := resources.Get "js/script.js" | resources.Minify }}
 	<script src="{{ $jsHead.Permalink }}" defer></script>
 	{{- if site.Params.codeCopyButton }}
