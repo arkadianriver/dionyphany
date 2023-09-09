@@ -39,8 +39,10 @@ params:
 
   #
   # The background image (in `assets`)
+  # (It's an array so that the default opengraph template can find it)
   #
-  bgimage: images/vouraikos-kalavrita.jpg
+  images:
+    - images/vouraikos-kalavrita.jpg
   
   #
   # Posts index page info
@@ -157,3 +159,5 @@ minify:
 disableKinds:
   - taxonomy
   - term
+
+enableRobotsTXT: true

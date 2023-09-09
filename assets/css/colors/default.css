@@ -39,11 +39,6 @@
 	--bx-shd: 4px 4px 12px 0px rgba(0, 0, 0, 0.7);
 }
 
-/* might not be necessary if your picture matches your theme palette */
-.bgimage img {
-	mix-blend-mode: overlay;
-}
-
 .lightmode {
 	--clr-primary: hsla(0, 0%, 94%, 0.87); /* translucent */
 	--clr-primary-thick: hsla(0, 0%, 94%, 0.97); /* less-translucent */
