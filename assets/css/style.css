@@ -654,8 +654,8 @@ mark {
 	padding-bottom: 0.125em;
 }
 mark {
-	color: var(--clr-primary);
-	background-color: var(--clr-accent);
+	color: marktext;
+	background-color: mark;
 }
 kbd > kbd {
 	border: 1px solid var(--clr-text-subdued);
