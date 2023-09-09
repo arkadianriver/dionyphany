@@ -91,3 +91,6 @@ worksPageDescription:
 postsPageDescription:
   other: |
     The archive of topics
+
+recentContent:
+  other: Recent content on {{ . }}

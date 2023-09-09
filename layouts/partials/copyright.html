@@ -1,0 +1,7 @@
+{{ $currYear := now.Format "2006" -}}
+{{- $firstPost := index ( first 1 ( where ( site.RegularPages.ByParam "date" ) "!=" nil ) ) 0 }}
+{{- $firstYear := $firstPost.Params.Date.Format "2006" }}
+{{- with $firstYear }}
+	{{- if lt $firstYear $currYear }}{{ $firstYear }}, {{ end }}
+{{- end }}
+{{- $currYear }}
