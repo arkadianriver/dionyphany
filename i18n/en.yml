@@ -81,7 +81,7 @@ by:
     {{ . }}
 
 creditsSub:
-  other: In no particular order
+  other: Those to thank, in no particular order
 
 worksPageDescription:
   other: |
