@@ -4,6 +4,31 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	{{- $description := site.Params.description }}
+	{{- if isset .Params "subtitle" }}
+	{{- $description = .Params.Subtitle }}
+	{{- else if isset .Params "description" }}
+	{{- $description = .Params.Description }}
+	{{- else if eq .RelPermalink "/posts/" }}
+		{{- with site.Params.postsDescription }}
+		{{- $description = . }}
+		{{- else }}
+		{{- $description = i18n "postsPageDescription" }}
+		{{- end }}
+	{{- else if eq .RelPermalink "/works/" }}
+		{{- with site.Params.worksDescription }}
+		{{- $description = . }}
+		{{- else }}
+		{{- $description = i18n "worksPageDescription" }}
+		{{- end }}
+	{{- else if eq .RelPermalink "/credits/" }}
+		{{- with .Params.Subtitle }}
+		{{- $description = . }}
+		{{- else }}
+		{{- $description = i18n "creditsSub" }}
+		{{- end }}
+	{{- end}}
+	<meta name="description" content="{{ $description | markdownify | plainify }}" />
 	<title>{{ site.Params.title }}</title>
 	{{- with resources.Get "favicon.ico" }}
 	<link rel="shortcut icon" href="{{ .RelPermalink }}" type="image/x-icon" />
