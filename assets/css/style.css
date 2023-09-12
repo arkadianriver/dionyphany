@@ -1055,4 +1055,54 @@ input, textarea {
 	display: none;
 }
 
+@media screen {
+	.printonly {
+		display: none;
+	}
+}
 
+@media print {
+
+	@page {
+		margin: 1in 0.5in;
+	}
+
+	.bgimage {
+		display: none;
+	}
+	.page-content a[href]::after {
+		content: " (" attr(href) ")"
+	}
+	.social {
+		display: block;
+	}
+	.social a[href]::after {
+		content: " (" attr(href) ")"
+	}
+	body, footer {
+		display: block;
+	}
+	header {
+		z-index: 0;
+		position: relative;
+		margin-bottom: 0;
+	}
+	main {
+		padding-top: 0;
+		widows: 4;
+		orphans: 4;
+	}
+	footer {
+		margin-top: 1rem;
+	}
+	footer,
+	.posts-list-item,
+	.works-list-item,
+	tr,
+	.img-page,
+	pre,
+	iframe
+	 {
+		break-inside: avoid;
+	}
+}
