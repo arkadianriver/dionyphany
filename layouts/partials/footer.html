@@ -2,7 +2,7 @@
 	{{ partial "social.html" site.Params.Social }}
 	<p class="copyright">
 		<small>Ⓒ</small> {{ i18n "copyright" }} {{ site.Params.owner }}
-		{{- partial "copyright.html" . }}.
+		{{ partial "copyright.html" . }}.
 		{{- with site.GetPage "/credits"}}
 		<a href="{{ .Permalink }}">{{ i18n "credits" }}</a>
 		{{- end }}
