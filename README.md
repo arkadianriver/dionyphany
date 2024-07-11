@@ -10,6 +10,30 @@ See Demo at https://arkadianriver.github.io/dionyphany/
 
 This is a theme for the Hugo static-site generator (SSG).
 
+1. If you haven't already, install [Hugo](https://gohugo.io/installation/),
+   [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git),
+   and, if you're on Windows,
+   [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows)
+   or [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+   from which to run the commands in the next step.
+1. To create a new site with this theme:
+   
+       hugo new site quickstart
+       cd quickstart
+       git init
+       git submodule add https://github.com/arkadianriver/dionyphany.git themes/dionyphany
+       rm hugo.toml
+       cp themes/dionyphany/exampleSite/* .
+1. Test the site:
+   
+       hugo server
+1. Edit the `hugo.yml` file with your information.
+1. Start adding posts to the `content/en/posts` folder and
+   portfolio items to the `content/en/works` folder.
+1. Refer to the
+   [Hugo documentation](https://gohugo.io/documentation/)
+   for further customization and
+   [ways to publish your site](https://gohugo.io/categories/hosting-and-deployment/).
 
 ## Notes
 
