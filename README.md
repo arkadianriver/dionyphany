@@ -1,7 +1,7 @@
 # dionyphany
 
 A portfolio and blog theme, inspired by the design of the
-[astro-portfolio-template](https://astro.build/themes/details/maewolff-portfolio-template/),
+[astro-portfolio-template](https://github.com/MaeWolff/astro-portfolio-template),
 by Maxence Wolff, but quite a departure from the original.
 
 See Demo at https://arkadianriver.github.io/dionyphany/
