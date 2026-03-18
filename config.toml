@@ -2,3 +2,4 @@
   [module.hugoVersion]
     extended = false
     min = "0.116.1"
+    max = "0.116.1"
