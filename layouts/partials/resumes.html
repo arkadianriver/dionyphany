@@ -2,9 +2,9 @@
 	<li>
 		&nbsp;&nbsp;/&nbsp;&nbsp;
 		<select name="resumes" id="resumes">
-			<option selected disabled hidden>PDF resumes</option>
+			<option selected disabled hidden>PDF résumés</option>
 			{{- range $idx, $val := . }}
-			<option value="res-dat" data-url="{{ $val.url }}">{{ $val.name }} resume</option>
+			<option value="res-dat" data-url="{{ $val.url }}">{{ $val.name }} résumé</option>
 			{{- end }}
 		</select>
 	</li>
