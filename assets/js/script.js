@@ -15,6 +15,21 @@ window.onscroll = (event) => {
 };
 
 /**
+ * Resume select box
+ */
+
+const resumes = document.getElementById('resumes');
+resumes.addEventListener('change', function() {
+  const selectedOption = this.options[this.selectedIndex];
+  const url = selectedOption.getAttribute('data-url');
+  if (url) {
+      window.open(url, '_blank');
+      // Optional: Reset the select box to the default option after opening the link
+      this.selectedIndex = 0; 
+  }
+});
+
+/**
  * Works table tag filtering
  */
 

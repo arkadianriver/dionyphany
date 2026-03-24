@@ -443,6 +443,26 @@ p.works-page-link a {
  * ---------------------------------------
  */
 
+#resumes {
+	margin: -3px 0 0 0;
+	font-size: var(--fs-400);
+	padding: 3px;
+	color: var(--clr-secondary);
+	appearance: none;
+	background-color: transparent;
+	outline: none;
+	box-shadow: none;
+	border: none;
+}
+
+#resumes:hover {
+	cursor: pointer;
+}
+
+#resumes:hover {
+	color: var(--clr-accent);
+}
+
 .works-table {
 	margin: var(--bx-mgn-sm-2) auto;
 	padding: 0;

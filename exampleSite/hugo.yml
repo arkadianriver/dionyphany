@@ -90,9 +90,15 @@ params:
   worksLinks:
     - name: LinkedIn Profile
       url: https://linkedin.com/in/{name}
-    # you can put your resume in the static folder
-    - name: Resume
-      url: /resume.pdf
+    # If you have one resume in the static folder, you can use this list item
+    #- name: Resume
+    #  url: /resume.pdf
+  # For multiple resumes, use this
+  resumeLinks:
+    - name: Consultant
+      url: resume_consult.pdf
+    - name: Software Developer
+      url: resume_dev.pdf
 
   #
   # For featured posts rather than recent posts on the home page

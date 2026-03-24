@@ -1,0 +1,11 @@
+{{- with . -}}
+	<li>
+		&nbsp;&nbsp;/&nbsp;&nbsp;
+		<select name="resumes" id="resumes">
+			<option selected disabled hidden>PDF resumes</option>
+			{{- range $idx, $val := . }}
+			<option value="res-dat" data-url="{{ $val.url }}">{{ $val.name }} resume</option>
+			{{- end }}
+		</select>
+	</li>
+{{- end -}}
